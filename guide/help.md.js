@@ -1,6 +1,6 @@
 export default `
 
-0)   Go to the [Etherscan Contract Page](https://etherscan.io/address/0x191dfb7e10f4c3a82b2c4f763d48744b6c7cf7ec#readContract)
+0)   Go to the [Etherscan Contract Page](https://etherscan.io/address/0x191dfb7e10f4c3a82b2c4f763d48744b6c7cf7ec#readContract): https://etherscan.io/address/0x191dfb7e10f4c3a82b2c4f763d48744b6c7cf7ec#readContract
 
 1)   Click "Contract" and then "Read Contract"
 
