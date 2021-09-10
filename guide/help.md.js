@@ -52,6 +52,6 @@ export default `
 
 ------------
 
-9)  Now accept the transaction from the wallet you previously linked to Web3 (in step 4) and that's it ... congratulations, you have purchased an Upside loot
+9)  Now accept the transaction from the wallet you previously linked to Web3 (in step 4) and that's it ... congratulations, you have purchased an Upside Down Loot
 `
 
