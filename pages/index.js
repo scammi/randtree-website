@@ -81,7 +81,7 @@ export default function Index() {
                 </Grid>
                 <Grid item>
                   <WhiteTextTypography variant="h6" color="textSecondary" align="center">
-                    <Link color="inherit" href="https://etherscan.io/token/0x191dfb7e10f4c3a82b2c4f763d48744b6c7cf7ec#writeContract" underline="hover">
+                    <Link color="inherit" href="https://etherscan.io/address/0x191dfb7e10f4c3a82b2c4f763d48744b6c7cf7ec#readContract" underline="hover">
                       Contract
                     </Link>{' '}
                   </WhiteTextTypography>
