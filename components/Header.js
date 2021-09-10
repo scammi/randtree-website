@@ -39,9 +39,9 @@ export default function Header() {
             </WhiteTextTypography>
           </Grid>
           <Grid item xs={2} sm={1} md={1}>
-            <WhiteTextTypography variant="body2" color="textSecondary" align="right">
+            <WhiteTextTypography variant="subtitle1" color="textSecondary" align="right">
               <Link color="inherit" href="/help">
-                <HelpOutlineIcon />
+                How to Mint
               </Link>{' '}
             </WhiteTextTypography>
           </Grid>
