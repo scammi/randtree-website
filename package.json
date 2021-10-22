@@ -16,7 +16,8 @@
     "react-dom": "latest",
     "react-ga": "^3.3.0",
     "sass": "^1.39.0",
-    "typewriter-effect": "^2.18.0"
+    "typewriter-effect": "^2.18.0",
+    "web3": "^1.6.0"
   },
   "scripts": {
     "dev": "next",
