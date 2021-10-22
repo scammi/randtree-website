@@ -24,10 +24,24 @@ export default function Header() {
     <AppBar position="relative" className={classes.header}>
       <Toolbar>
         <Grid container spacing={6} justifyContent="center" alingt="center">
-          <Grid item xs={8} sm={10} md={10}>
+          <Grid item xs={8} sm={9} md={9}>
             <WhiteTextTypography variant="h6" color="inherit">
               <Link color="inherit" href="/">
                 Upside Down
+              </Link>{' '}
+            </WhiteTextTypography>
+          </Grid>
+          <Grid item xs={1} sm={1} md={1}>
+            <WhiteTextTypography variant="subtitle1" color="textSecondary" align="right">
+              <Link color="inherit" href="/help">
+                How to Mint
+              </Link>{' '}
+            </WhiteTextTypography>
+          </Grid>
+          <Grid item xs={2} sm={1} md={1}>
+            <WhiteTextTypography variant="subtitle1" color="textSecondary" align="right">
+              <Link color="inherit" href="/rLOOT">
+                rLOOT
               </Link>{' '}
             </WhiteTextTypography>
           </Grid>
@@ -35,13 +49,6 @@ export default function Header() {
             <WhiteTextTypography variant="subtitle1" color="textSecondary" align="right">
               <Link color="inherit" href="/faq">
                 FAQ
-              </Link>{' '}
-            </WhiteTextTypography>
-          </Grid>
-          <Grid item xs={2} sm={1} md={1}>
-            <WhiteTextTypography variant="subtitle1" color="textSecondary" align="right">
-              <Link color="inherit" href="/help">
-                How to Mint
               </Link>{' '}
             </WhiteTextTypography>
           </Grid>
