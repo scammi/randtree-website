@@ -11,7 +11,7 @@ import WhiteTextTypography from '../components/WhiteTextTypography';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
-import { Update } from '@material-ui/icons';
+import BuyButton from '../components/BuyButton';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -31,9 +31,9 @@ const cards = [1, 2];
 export default function Index() {
   const classes = useStyles();
   let [currentBatch, setCurrentBatch] = useState(0)
+  let [raffle, setRaffle] =useState({})
 
   let provider = []
-  let Raffle = {}
   let currentAccount = ''
 
   async function loadBlockChain() {
@@ -46,9 +46,12 @@ export default function Index() {
     const network_name = network.name 
     const signer = await provider.getSigner()
 
-    Raffle = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
-    currentBatch = await Raffle.currentBatch()
+    let contract = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
+    setRaffle(contract)
+
+    currentBatch = await contract.currentBatch()
     setCurrentBatch(currentBatch.toNumber())
+
     console.log(currentBatch)
   }
 
@@ -73,7 +76,7 @@ export default function Index() {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={2}>
-                <Button variant="contained">Buy ticket</Button>
+                <BuyButton contract={raffle}/>
               </Grid>
               <CurrentBatchLabel currentBatch={currentBatch}/>
             </Grid>
