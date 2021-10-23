@@ -5,13 +5,21 @@ import WhiteTextTypography from './WhiteTextTypography';
 
 export default function BuyButton(prop) {
 
-  console.log(prop.contract)
   let ready = Object.entries(prop.contract).length
+
+  async function buy() {
+    await prop.contract.buy()
+  }
 
   if(ready) 
   {
     return (
-      <Button variant="contained">Buy ticket</Button>
+      <Button 
+        variant="contained"
+        onClick={buy}
+      >
+        Buy ticket
+      </Button>
     );
   }
   else
