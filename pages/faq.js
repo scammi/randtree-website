@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
 export default function HowItWork() {
   const classes = useStyles();
 
-  const [glitch, setGlitch] = useState(true);
-
   return (
     <React.Fragment>
       <CssBaseline />
