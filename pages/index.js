@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Button, Chip } from '@material-ui/core';
-
-import Web3 from 'web3'
+import { ethers } from "ethers";
 
 import WhiteTextTypography from '../components/WhiteTextTypography';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import {addresses} from '../contracts/addresses';
+import { RAFFLE_ABI } from '../contracts/abi';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -28,13 +29,23 @@ const cards = [1, 2];
 export default function Index() {
   const classes = useStyles();
 
-  async function loadBlockChain() {
-    const web3 = new Web3(Web3.givenProvider || 'http://localhost:8080')
-    const network = await web3.eth.net.getNetworkType();
-    console.log(network) // should give you main if you're connected to the main network via metamask...
-    const accounts = await web3.eth.getAccounts()
+  let provider = []
+  let Raffle = {}
+  let currentAccount = ''
 
-    console.log({account: accounts[0]})
+  async function loadBlockChain() {
+    provider = new ethers.providers.Web3Provider(window.ethereum)
+    const accounts =  await provider.send('eth_requestAccounts', []);
+
+    currentAccount = ethers.utils.getAddress(accounts[0])
+
+    const network = await provider.getNetwork()
+    const network_name = network.name 
+    const signer = await provider.getSigner()
+
+    Raffle = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
+    const currentBatch = await Raffle.currentBatch()
+    console.log(currentBatch.toNumber())
   }
 
   return (
@@ -61,7 +72,7 @@ export default function Index() {
                 <Button variant="contained">Buy ticket</Button>
               </Grid>
               <Grid item xs={2}>
-                <Chip label="Current raffle  0" variant="outlined"/>
+                <Chip label="Current raffle" variant="outlined"/>
               </Grid>
             </Grid>
           </Grid>
