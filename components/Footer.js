@@ -7,7 +7,7 @@ function Copyright() {
     return (
         <WhiteTextTypography variant="body2" color="textSecondary" align="center">
             {'This website is '}
-            <Link color="inherit" href="https://github.com/UpsideDownLootProject/website" underline="always">
+            <Link color="inherit" href="" underline="always">
                 open-source
             </Link>{'. '}
             <br />
