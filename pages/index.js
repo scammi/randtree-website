@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Button, Chip } from '@material-ui/core';
 import { ethers } from "ethers";
 
-import WhiteTextTypography from '../components/WhiteTextTypography';
-
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import {addresses} from '../contracts/addresses';
 import { RAFFLE_ABI } from '../contracts/abi';
+
+import WhiteTextTypography from '../components/WhiteTextTypography';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import CurrentBatchLabel from '../components/CurrentBatchLabel';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -71,9 +72,7 @@ export default function Index() {
               <Grid item xs={2}>
                 <Button variant="contained">Buy ticket</Button>
               </Grid>
-              <Grid item xs={2}>
-                <Chip label="Current raffle" variant="outlined"/>
-              </Grid>
+              <CurrentBatchLabel/>
             </Grid>
           </Grid>
 
