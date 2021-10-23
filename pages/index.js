@@ -11,6 +11,7 @@ import WhiteTextTypography from '../components/WhiteTextTypography';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
+import { Update } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -29,6 +30,7 @@ const cards = [1, 2];
 
 export default function Index() {
   const classes = useStyles();
+  let [currentBatch, setCurrentBatch] = useState(0)
 
   let provider = []
   let Raffle = {}
@@ -45,8 +47,9 @@ export default function Index() {
     const signer = await provider.getSigner()
 
     Raffle = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
-    const currentBatch = await Raffle.currentBatch()
-    console.log(currentBatch.toNumber())
+    currentBatch = await Raffle.currentBatch()
+    setCurrentBatch(currentBatch.toNumber())
+    console.log(currentBatch)
   }
 
   return (
@@ -72,7 +75,7 @@ export default function Index() {
               <Grid item xs={2}>
                 <Button variant="contained">Buy ticket</Button>
               </Grid>
-              <CurrentBatchLabel/>
+              <CurrentBatchLabel currentBatch={currentBatch}/>
             </Grid>
           </Grid>
 

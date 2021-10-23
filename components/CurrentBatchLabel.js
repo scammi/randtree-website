@@ -14,13 +14,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export default function CurrentBatchLabel() {
+export default function CurrentBatchLabel(prop) {
 
   return (
     <Grid item>
       <StyledBadge
       color="secondary"
-      badgeContent={10}
+      badgeContent={prop.currentBatch}
       >
         <WhiteTextTypography>
           Current Raffle
