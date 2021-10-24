@@ -11,7 +11,7 @@
     "clsx": "latest",
     "ethers": "^5.5.1",
     "markdown-to-jsx": "^7.1.3",
-    "next": "^11.2.0",
+    "next": "^11.1.2",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -24,5 +24,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT"
+  },
+  "engines": {
+    "node": "16"
   }
 }
