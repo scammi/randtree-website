@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Button, Chip } from '@material-ui/core';
+import { Container, Grid, Button} from '@material-ui/core';
 import { ethers } from "ethers";
 
 import {addresses} from '../contracts/addresses';
@@ -12,6 +12,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
 import BuyButton from '../components/BuyButton';
+import LootGrid from '../components/LootGrid';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -79,9 +80,9 @@ export default function Index() {
                 <BuyButton contract={raffle}/>
               </Grid>
               <CurrentBatchLabel currentBatch={currentBatch}/>
+              <LootGrid/>
             </Grid>
           </Grid>
-
         </Container>
       </main>
         <Footer />
