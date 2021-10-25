@@ -3,7 +3,10 @@ import { Grid } from '@material-ui/core';
 import WhiteTextTypography from './WhiteTextTypography';
 
 
-export default function LootGrid(prop) {
+export default function LootGrid(props) {
+
+  let owner = props.currentAccount.toLowerCase()
+  console.log(props)
 
   async function queryOwnerWon(owner) {
     const version = '0.2.4'
@@ -36,7 +39,7 @@ export default function LootGrid(prop) {
     return data; 
   }
     
-    console.log(queryOwnerWon('0x227B769676984D480C7a1e2664725C3E7223C04E'))
+    console.log(queryOwnerWon(owner))
     // loots = []
 
     // // Get claimed loots

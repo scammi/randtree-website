@@ -32,16 +32,18 @@ const cards = [1, 2];
 export default function Index() {
   const classes = useStyles();
   let [currentBatch, setCurrentBatch] = useState(0)
-  let [raffle, setRaffle] =useState({})
+  let [raffle, setRaffle] = useState({})
+  let [currentAccount , setCurrentAccount] = useState('')
 
   let provider = []
-  let currentAccount = ''
 
   async function loadBlockChain() {
     provider = new ethers.providers.Web3Provider(window.ethereum)
     const accounts =  await provider.send('eth_requestAccounts', []);
 
-    currentAccount = ethers.utils.getAddress(accounts[0])
+    const account = ethers.utils.getAddress(accounts[0])
+
+    setCurrentAccount(account)
 
     const network = await provider.getNetwork()
     const network_name = network.name 
@@ -80,7 +82,7 @@ export default function Index() {
                 <BuyButton contract={raffle}/>
               </Grid>
               <CurrentBatchLabel currentBatch={currentBatch}/>
-              <LootGrid/>
+              <LootGrid currentAccount={currentAccount}/>
             </Grid>
           </Grid>
         </Container>
