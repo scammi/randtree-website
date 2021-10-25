@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import WhiteTextTypography from './WhiteTextTypography';
 
@@ -6,7 +6,7 @@ import WhiteTextTypography from './WhiteTextTypography';
 export default function LootGrid(props) {
 
   let owner = props.currentAccount.toLowerCase()
-  // const [loot, setLoot] = useState([])
+  const [loot, setLoot] = useState([])
 
   async function queryOwnerWon(owner) {
     const version = '0.2.4'
@@ -52,6 +52,7 @@ export default function LootGrid(props) {
         index: undefined // i need this
       })
     })
+
     await Promise.all(rloots.map(async (loot) => {
       const name = `Lootbox #${loot.id}`
       // todo : remove duplicate logic
@@ -63,11 +64,14 @@ export default function LootGrid(props) {
         name
       })
     }))
-
-    console.log("metadata >>>>>>>>>>>", lootMetadata)
+    console.log('>>>>>>>> ', lootMetadata)
+    setLoot(lootMetadata)
   }
 
-  getMetadata(owner)
+  useEffect(()=> {
+    getMetadata(owner)
+  }, [owner])
+
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
