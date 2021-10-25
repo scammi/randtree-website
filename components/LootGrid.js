@@ -6,7 +6,7 @@ import WhiteTextTypography from './WhiteTextTypography';
 export default function LootGrid(props) {
 
   let owner = props.currentAccount.toLowerCase()
-  console.log(props)
+  // const [loot, setLoot] = useState([])
 
   async function queryOwnerWon(owner) {
     const version = '0.2.4'
@@ -38,44 +38,43 @@ export default function LootGrid(props) {
 
     return data; 
   }
-    
-    console.log(queryOwnerWon(owner))
-    // loots = []
-
-    // // Get claimed loots
-    // const {raffleBatches: wonBatches, rloots } = await queryOwnerWon(currentAccount)
-    // wonBatches.forEach(b => {
-    //   loots.push({
-    //     claimed: false,
-    //     batchId: b.batchId,
-    //     index: undefined // i need this
-    //   })
-    // })
-    // await Promise.all(rloots.map(async (loot) => {
-    //   // const { name } = await getLootMetadata(loot.id)
-    //   const name = `Lootbox #${loot.id}`
-    //   // todo : remove duplicate logic
-    //   metadatas[loot.id] = {
-    //     name,
-    //     properties: loot.properties
-    //   }
-    //   loots.push({
-    //     claimed: true,
-    //     id: loot.id,
-    //     properties: loot.properties,
-    //     name
-    //   })
-    // }))
-
-    return (
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(6)).map((_, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-          <WhiteTextTypography>{index}</WhiteTextTypography>
-          </Grid>
-        ))}
-      </Grid>
-    )
-
   
+  //construct metadata
+  let getMetadata = async (owner) => {
+    let lootMetadata = []
+
+    // Get claimed loots
+    const {raffleBatches: wonBatches, rloots } = await queryOwnerWon(owner)
+    wonBatches.forEach(b => {
+      lootMetadata.push({
+        claimed: false,
+        batchId: b.batchId,
+        index: undefined // i need this
+      })
+    })
+    await Promise.all(rloots.map(async (loot) => {
+      const name = `Lootbox #${loot.id}`
+      // todo : remove duplicate logic
+
+      lootMetadata.push({
+        claimed: true,
+        id: loot.id,
+        properties: loot.properties,
+        name
+      })
+    }))
+
+    console.log("metadata >>>>>>>>>>>", lootMetadata)
+  }
+
+  getMetadata(owner)
+  return (
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      {Array.from(Array(6)).map((_, index) => (
+        <Grid item xs={2} sm={4} md={4} key={index}>
+        <WhiteTextTypography>{index}</WhiteTextTypography>
+        </Grid>
+      ))}
+    </Grid>
+  )
 }
