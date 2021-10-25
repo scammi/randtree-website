@@ -6,7 +6,7 @@ import WhiteTextTypography from './WhiteTextTypography';
 export default function LootGrid(props) {
 
   let owner = props.currentAccount.toLowerCase()
-  const [loot, setLoot] = useState([])
+  const [loots, setLoots] = useState([])
 
   async function queryOwnerWon(owner) {
     const version = '0.2.4'
@@ -65,7 +65,7 @@ export default function LootGrid(props) {
       })
     }))
     console.log('>>>>>>>> ', lootMetadata)
-    setLoot(lootMetadata)
+    setLoots(lootMetadata)
   }
 
   useEffect(()=> {
@@ -74,9 +74,9 @@ export default function LootGrid(props) {
 
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      {Array.from(Array(6)).map((_, index) => (
+      {Array.from(loots).map((loot, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
-        <WhiteTextTypography>{index}</WhiteTextTypography>
+        <WhiteTextTypography>{loot.batchId ?? loot.id}</WhiteTextTypography>
         </Grid>
       ))}
     </Grid>
