@@ -91,7 +91,7 @@ export default function LootGrid(props) {
 
           {loot.id ?
             <Loot provider={provider} properties={loot.properties}/>  :
-            <LootBox provider={provider}/>
+            <LootBox provider={provider} currentAccount={owner} batchId={loot.batchId} />
           }
         </Grid>
       ))}
