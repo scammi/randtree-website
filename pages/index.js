@@ -77,14 +77,14 @@ export default function Index() {
             <Grid item>
               <Button variant="contained" onClick={loadBlockChain}> Connect </Button>
             </Grid>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
               <Grid item xs={2}>
                 <BuyButton contract={raffle}/>
               </Grid>
               <CurrentBatchLabel currentBatch={currentBatch}/>
-              <LootGrid currentAccount={currentAccount}/>
             </Grid>
           </Grid>
+          <LootGrid currentAccount={currentAccount}/>
         </Container>
       </main>
         <Footer />
