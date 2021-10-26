@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Button} from '@material-ui/core';
 import { ethers } from "ethers";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Container, Grid, Button} from '@material-ui/core';
 
 import {addresses} from '../contracts/addresses';
 import { RAFFLE_ABI } from '../contracts/abi';
@@ -13,6 +12,7 @@ import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
 import BuyButton from '../components/BuyButton';
 import LootGrid from '../components/LootGrid';
+import ProcessBatchButton from '../components/ProcessBatchButton';
 
 export default function Index() {
   let [currentBatch, setCurrentBatch] = useState(0)
@@ -70,9 +70,10 @@ export default function Index() {
             </Grid>
           </Grid>
           <LootGrid currentAccount={currentAccount} provider={provider}/>
+          <ProcessBatchButton contract={raffle}/>
         </Container>
       </main>
-        <Footer />
+      <Footer />
     </React.Fragment>
   );
 }
