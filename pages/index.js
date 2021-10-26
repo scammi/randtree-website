@@ -14,31 +14,15 @@ import CurrentBatchLabel from '../components/CurrentBatchLabel';
 import BuyButton from '../components/BuyButton';
 import LootGrid from '../components/LootGrid';
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(8, 0, 6),
-  },
-  paragraph: {
-    marginTop: theme.spacing(5),
-  }
-}));
-
-const cards = [1, 2];
-
 export default function Index() {
-  const classes = useStyles();
   let [currentBatch, setCurrentBatch] = useState(0)
   let [raffle, setRaffle] = useState({})
   let [currentAccount , setCurrentAccount] = useState('')
-
-  let provider = []
+  let [provider, setProvider] = useState([])
 
   async function loadBlockChain() {
-    provider = new ethers.providers.Web3Provider(window.ethereum)
+    setProvider(await new ethers.providers.Web3Provider(window.ethereum))
+
     const accounts =  await provider.send('eth_requestAccounts', []);
 
     const account = ethers.utils.getAddress(accounts[0])
@@ -84,7 +68,7 @@ export default function Index() {
               <CurrentBatchLabel currentBatch={currentBatch}/>
             </Grid>
           </Grid>
-          <LootGrid currentAccount={currentAccount}/>
+          <LootGrid currentAccount={currentAccount} provider={provider}/>
         </Container>
       </main>
         <Footer />

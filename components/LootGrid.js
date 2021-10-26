@@ -9,6 +9,8 @@ import WhiteTextTypography from './WhiteTextTypography';
 export default function LootGrid(props) {
 
   let owner = props.currentAccount.toLowerCase()
+  let provider = props.provider
+
   const [loots, setLoots] = useState([])
 
   async function queryOwnerWon(owner) {
@@ -87,7 +89,7 @@ export default function LootGrid(props) {
         <Grid item xs={2} sm={4} md={4} key={index}>
           <WhiteTextTypography>{loot.batchId ?? loot.id}</WhiteTextTypography>
 
-          {loot.id ?  <Loot/>  : <LootBox/>}
+          {loot.id ?  <Loot provider={provider}/>  : <LootBox provider={provider}/>}
         </Grid>
       ))}
     </Grid>
