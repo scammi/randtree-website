@@ -89,7 +89,10 @@ export default function LootGrid(props) {
         <Grid item xs={2} sm={4} md={4} key={index}>
           <WhiteTextTypography>{loot.batchId ?? loot.id}</WhiteTextTypography>
 
-          {loot.id ?  <Loot provider={provider}/>  : <LootBox provider={provider}/>}
+          {loot.id ?
+            <Loot provider={provider} properties={loot.properties}/>  :
+            <LootBox provider={provider}/>
+          }
         </Grid>
       ))}
     </Grid>

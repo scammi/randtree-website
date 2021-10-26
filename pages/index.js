@@ -19,25 +19,26 @@ export default function Index() {
   let [raffle, setRaffle] = useState({})
   let [currentAccount , setCurrentAccount] = useState('')
   let [provider, setProvider] = useState([])
+  let tempProvider = []
 
   async function loadBlockChain() {
-    setProvider(await new ethers.providers.Web3Provider(window.ethereum))
-
-    const accounts =  await provider.send('eth_requestAccounts', []);
+    tempProvider = new ethers.providers.Web3Provider(window.ethereum)
+    const accounts =  await tempProvider.send('eth_requestAccounts', [])
 
     const account = ethers.utils.getAddress(accounts[0])
 
     setCurrentAccount(account)
 
-    const network = await provider.getNetwork()
+    const network = await tempProvider.getNetwork()
     const network_name = network.name 
-    const signer = await provider.getSigner()
+    const signer = await tempProvider.getSigner()
 
     let contract = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
     setRaffle(contract)
 
     currentBatch = await contract.currentBatch()
     setCurrentBatch(currentBatch.toNumber())
+    setProvider(tempProvider)
 
     console.log(currentBatch)
   }
