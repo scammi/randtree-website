@@ -47,9 +47,17 @@ export default function Index() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
+      <Header walletStatus={walletConnected} onClick={()=>{loadBlockChain()}} />
       <main>
-        <Container maxWidth="md" style={{marginTop:"50px"}}>
+        <Container maxWidth="md" style={{marginTop:"10px"}}>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <ArtCard currentBatch={currentBatch}/>
+            </Grid>
+            <Grid item xs={6}>
+              <RaffleCard contract={raffle}/>
+            </Grid>
+          </Grid>
           <Grid container height="50%" spacing={2} justifyContent="space-between">
             <Grid item>
               <Typography component="h3" variant="h3" align="left" color="textPrimary">
@@ -60,16 +68,6 @@ export default function Index() {
               </Typography>
             </Grid>
             <Grid item>
-             <ConnectButton walletStatus={walletConnected} onClick={()=>{loadBlockChain()}}/> 
-            </Grid>
-          </Grid>
-
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <ArtCard currentBatch={currentBatch}/>
-            </Grid>
-            <Grid item xs={6}>
-              <RaffleCard contract={raffle}/>
             </Grid>
           </Grid>
         </Container>

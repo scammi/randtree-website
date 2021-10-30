@@ -28,7 +28,7 @@ export default function ArtCard(props) {
       />
       </CardContent>
       <CardActions>
-        
+
       </CardActions>
     </Card>
   );

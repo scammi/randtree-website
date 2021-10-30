@@ -1,41 +1,38 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import AppBar from '@material-ui/core/AppBar';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import ConnectButton from './buttons/ConnectButton';
+import { Grid } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
-    backgroundColor: theme.palette.background.default,
-    padding: '2px'
-  },
-}));
-
-export default function Header() {
-  const classes = useStyles();
+export default function Header(props) {
 
   return (
-    <AppBar position="relative" className={classes.header}>
-      <Toolbar>
-        <Grid container spacing={1} justifyContent="start">
-          <Grid item xs={2} sm={1} md={1}>
-            <Typography >
-              <Link color="primary" href="/">
-               rTree 
-              </Link>{' '}
-            </Typography>
-          </Grid>
-          <Grid item xs={2} sm={1} md={1}>
-            <Typography variant="subtitle1" color="">
-              <Link color="primary" href="/faq">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" >
+        <Toolbar>
+          <Grid container spacing={3} sx={{ flexGrow: 1 }}>
+            <Grid item>
+              <Typography variant="h5" component="div" >
+                rTree
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle1" component="div" >
+                About
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle1" component="div" >
                 FAQ
-              </Link>{' '}
-            </Typography>
+              </Typography>
+            </Grid>
+
           </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+           <ConnectButton walletStatus={props.walletStatus} onClick={()=>{props.onClick()}}/> 
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
