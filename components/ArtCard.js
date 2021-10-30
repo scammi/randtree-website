@@ -8,6 +8,33 @@ export default function ArtCard() {
 
   const [ state ] = useAppContext();
 
+  async function queryRaffles() {
+    const version = '0.2.4'
+    const response = await fetch(`https://api.studio.thegraph.com/query/6834/piedras/${version}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        query: `{
+          raffleBatches {
+            id
+            batchId
+            winner
+            claimed
+            processed
+          }
+        }`
+      }),
+      headers: {
+          'content-type': 'application/json'
+      }
+    })
+    
+    const {data} = await response.json();
+
+    console.log("raffles: ", data)
+
+    return data;
+  }
+
   return(
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
