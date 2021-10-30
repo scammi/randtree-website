@@ -14,7 +14,7 @@ export default function ArtCard(props) {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography color="text.secondary" gutterBottom>
-          Tree ~ 24
+          Tree ~ {props.currentBatch}
         </Typography>
         <CardMedia
         component="img"

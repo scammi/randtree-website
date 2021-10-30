@@ -9,9 +9,8 @@ import { RAFFLE_ABI } from '../contracts/abi';
 import Header from '../components/Header';
 import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
-import CurrentBatchLabel from '../components/CurrentBatchLabel';
-import BuyButton from '../components/buttons/BuyButton';
 import ArtCard from '../components/ArtCard';
+import RaffleCard from '../components/RaffleCard';
 
 export default function Index() {
   let [walletConnected, setWalletConnected] = useState(false)
@@ -68,7 +67,7 @@ export default function Index() {
                 <ArtCard currentBatch={currentBatch}/>
               </Grid>
               <Grid item xs={6}>
-                <BuyButton contract={raffle}/>
+                <RaffleCard contract={raffle}/>
               </Grid>
             </Grid>
           </Grid>
