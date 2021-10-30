@@ -8,8 +8,6 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 import WhiteTextTypography from './WhiteTextTypography';
 
-
-
 const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: theme.palette.background.default,
@@ -27,7 +25,7 @@ export default function Header() {
           <Grid item xs={2} sm={1} md={1}>
             <WhiteTextTypography variant="h6" color="inherit">
               <Link color="inherit" href="/">
-               rLOOT 
+               rTree 
               </Link>{' '}
             </WhiteTextTypography>
           </Grid>

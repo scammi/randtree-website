@@ -53,7 +53,7 @@ export default function Index() {
           <Grid container height="50%" spacing={2} justifyContent="space-between">
             <Grid item>
               <WhiteTextTypography component="h3" variant="h3" align="left" color="textPrimary">
-                rLOOT
+                Random tree
               </WhiteTextTypography>
               <WhiteTextTypography variant="h6" align="left" color="textSecondary" gutterBottom>
                 random loot minting system
