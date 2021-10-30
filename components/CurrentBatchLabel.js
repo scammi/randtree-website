@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Badge } from '@material-ui/core';
 import { makeStyles, styled } from '@material-ui/core/styles';
-import WhiteTextTypography from './WhiteTextTypography';
+import Typography from '@material-ui/core/Typography';
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -22,9 +22,9 @@ export default function CurrentBatchLabel(prop) {
       color="secondary"
       badgeContent={prop.currentBatch}
       >
-        <WhiteTextTypography>
+        <Typography>
           Current Raffle
-        </WhiteTextTypography>
+        </Typography>
       </StyledBadge>
     </Grid>
   );

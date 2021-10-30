@@ -1,8 +1,6 @@
 import { ethers } from "ethers";
 import { addresses } from "../../contracts/addresses";
 import { RAFFLE_ABI } from "../../contracts/abi";
-import WhiteTextTypography from '../WhiteTextTypography';
-import { Button, Box, Typography, Modal } from '@material-ui/core';
 
 export default function LootBox(props) {
   const provider = props.provider

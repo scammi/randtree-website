@@ -12,19 +12,19 @@ const theme = createTheme({
     },
     palette: {
         primary: {
-            main: '#1a1a1a',
+            main: '#000',
         },
         secondary: {
-            main: '#000',
+            main: '#E2D686',
         },
         error: {
             main: red.A400,
         },
         text: {
-            main: '#fff',
+            main: '#000',
         },
         background: {
-            default: '#1a1a1a',
+            default: '#D4E6B5',
             component: '#000',
         },
     },

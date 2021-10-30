@@ -3,8 +3,8 @@ import { ethers } from "ethers";
 
 import { addresses } from "../../contracts/addresses";
 import { LOOTPROPERTIES_ABI } from "../../contracts/abi";
-import WhiteTextTypography from '../WhiteTextTypography';
-import { Button, Box, Typography, Modal } from '@material-ui/core';
+
+import { Box, Typography, Modal } from '@material-ui/core';
 
 export default function Loot(props) {
 
@@ -61,9 +61,9 @@ export default function Loot(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <WhiteTextTypography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h2">
            Properties: 
-          </WhiteTextTypography>
+          </Typography>
           {Object.entries(properties).map((prop, index)=> (
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               {prop[0]}:   {prop[1]}

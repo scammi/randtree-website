@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
-import WhiteTextTypography from './WhiteTextTypography';
 
 
 export default function BuyButton(prop) {

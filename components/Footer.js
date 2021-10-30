@@ -1,18 +1,18 @@
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-import WhiteTextTypography from './WhiteTextTypography';
 
 function Copyright() {
     return (
-        <WhiteTextTypography variant="body2" color="textSecondary" align="center">
+        <Typography variant="body2" color="textSecondary" align="center">
             {'This website is '}
             <Link color="inherit" href="" underline="always">
                 open-source
             </Link>{'. '}
             <br />
             {new Date().getFullYear()}
-        </WhiteTextTypography>
+        </Typography>
     );
 }
 

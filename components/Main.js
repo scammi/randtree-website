@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Markdown from './Markdown';
 
-import WhiteTextTypography from './WhiteTextTypography';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -20,9 +20,9 @@ export default function Main(props) {
 
   return (
     <Grid item xs={12}>
-      <WhiteTextTypography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom>
         {title}
-      </WhiteTextTypography>
+      </Typography>
       <Divider style={{ background: "#fff" }} />
       {posts.map((post) => (
         <Markdown className={classes.markdown} key={post.toString().substring(0, 40)}>

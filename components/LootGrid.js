@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 
 import Loot from './loots/Loot'
 import LootBox from './loots/lootBox';
-import WhiteTextTypography from './WhiteTextTypography';
+import Typography from '@material-ui/core/Typography';
 
 
 export default function LootGrid(props) {
@@ -87,7 +87,7 @@ export default function LootGrid(props) {
     >
       {Array.from(loots).map((loot, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
-          <WhiteTextTypography>{loot.batchId ?? loot.id}</WhiteTextTypography>
+          <Typography>{loot.batchId ?? loot.id}</Typography>
 
           {loot.id ?
             <Loot provider={provider} properties={loot.properties}/>  :

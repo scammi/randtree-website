@@ -6,8 +6,8 @@ import { Container, Grid, Button} from '@material-ui/core';
 import {addresses} from '../contracts/addresses';
 import { RAFFLE_ABI } from '../contracts/abi';
 
-import WhiteTextTypography from '../components/WhiteTextTypography';
 import Header from '../components/Header';
+import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
 import BuyButton from '../components/BuyButton';
@@ -49,15 +49,14 @@ export default function Index() {
       <Header />
       <main>
         <Container maxWidth="md" style={{marginTop:"50px"}}>
-
           <Grid container height="50%" spacing={2} justifyContent="space-between">
             <Grid item>
-              <WhiteTextTypography component="h3" variant="h3" align="left" color="textPrimary">
+              <Typography component="h3" variant="h3" align="left" color="textPrimary">
                 Random tree
-              </WhiteTextTypography>
-              <WhiteTextTypography variant="h6" align="left" color="textSecondary" gutterBottom>
+              </Typography>
+              <Typography variant="h6" align="left" color="textSecondary" gutterBottom>
                 random loot minting system
-              </WhiteTextTypography>
+              </Typography>
             </Grid>
             <Grid item>
               <Button variant="contained" onClick={loadBlockChain}> Connect </Button>
