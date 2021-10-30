@@ -1,21 +1,25 @@
 import React from 'react';
-import { Button, Box, Card, CardActions, CardContent, Typography, CardMedia } from '@material-ui/core';
+import { Button, Box, Card, CardActions, CardContent, Typography, CardMedia, Grid } from '@material-ui/core';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 
 export default function ArtCard(props) {
-  const bull = (
-      <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-      >
-        •
-      </Box>
-    );
+
   return(
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-        <Typography color="text.secondary" gutterBottom>
-          Tree ~ {props.currentBatch}
-        </Typography>
+        <Grid container justifyContent="space-between">
+          <Grid item>
+            <Typography color="text.secondary" gutterBottom>
+              Tree ~ {props.currentBatch}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <ArrowBackIosIcon/>
+            <ArrowForwardIosIcon/>
+          </Grid>
+        </Grid>
         <CardMedia
         component="img"
         alt=""
@@ -24,7 +28,7 @@ export default function ArtCard(props) {
       />
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        
       </CardActions>
     </Card>
   );
