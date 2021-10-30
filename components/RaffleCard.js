@@ -10,7 +10,12 @@ export default function RaffleCard(props) {
         <Typography color="text.secondary" gutterBottom>
           Raffle 
         </Typography>
-
+        <Typography>
+          Participants
+        </Typography>
+        <Typography>
+          Ends in
+        </Typography>
       </CardContent>
       <CardActions>
         <BuyButton contract={props.contract}/>

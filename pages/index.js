@@ -62,13 +62,13 @@ export default function Index() {
             <Grid item>
              <ConnectButton walletStatus={walletConnected} onClick={()=>{loadBlockChain()}}/> 
             </Grid>
-            <Grid container spacing={2}  >
-              <Grid item xs={6}>
-                <ArtCard currentBatch={currentBatch}/>
-              </Grid>
-              <Grid item xs={6}>
-                <RaffleCard contract={raffle}/>
-              </Grid>
+          </Grid>
+          <Grid container spacing={2}  >
+            <Grid item xs={6}>
+              <ArtCard currentBatch={currentBatch}/>
+            </Grid>
+            <Grid item xs={6}>
+              <RaffleCard contract={raffle}/>
             </Grid>
           </Grid>
         </Container>
