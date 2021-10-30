@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import ArtCard from '../components/ArtCard';
 import RaffleCard from '../components/RaffleCard';
+import ConnectButton from '../components/buttons/ConnectButton';
 
 export default function Index() {
   let [walletConnected, setWalletConnected] = useState(false)
@@ -58,16 +59,15 @@ export default function Index() {
                 random loot minting system
               </Typography>
             </Grid>
-
             <Grid item>
-              <Button variant="contained" onClick={loadBlockChain}> {walletConnected ? 'Connected' : 'Connect'} </Button>
+             <ConnectButton onClick={()=>{loadBlockChain()}}/> 
             </Grid>
             <Grid container spacing={2}  >
               <Grid item xs={6}>
                 <ArtCard currentBatch={currentBatch}/>
               </Grid>
               <Grid item xs={6}>
-                <RaffleCard contract={raffle}/>
+                <RaffleCard status={walletConnected} contract={raffle}/>
               </Grid>
             </Grid>
           </Grid>
