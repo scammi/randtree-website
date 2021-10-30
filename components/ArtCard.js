@@ -2,9 +2,11 @@ import React from 'react';
 import { Button, Box, Card, CardActions, CardContent, Typography, CardMedia, Grid } from '@material-ui/core';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { useAppContext } from '../context/AppContext';
 
+export default function ArtCard() {
 
-export default function ArtCard(props) {
+  const [ state ] = useAppContext();
 
   return(
     <Card sx={{ minWidth: 275 }}>
@@ -12,7 +14,7 @@ export default function ArtCard(props) {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography color="primary" variant="h6" gutterBottom>
-              Tree ~ {props.currentBatch}
+              Tree ~ {state.currentBatch}
             </Typography>
           </Grid>
           <Grid item>

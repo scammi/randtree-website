@@ -63,10 +63,10 @@ export default function Index() {
           </Grid> */}
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <ArtCard currentBatch={currentBatch}/>
+              <ArtCard/>
             </Grid>
             <Grid item xs={6}>
-              <RaffleCard contract={raffle}/>
+              {/* <RaffleCard contract={raffle}/> */}
             </Grid>
           </Grid>
 
