@@ -21,7 +21,7 @@ export default function Header() {
       <Toolbar>
         <Grid container spacing={1} justifyContent="start">
           <Grid item xs={2} sm={1} md={1}>
-            <Typography vrianat="h6">
+            <Typography >
               <Link color="primary" href="/">
                rTree 
               </Link>{' '}

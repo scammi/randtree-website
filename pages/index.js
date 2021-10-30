@@ -10,10 +10,8 @@ import Header from '../components/Header';
 import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
-import ConnectButton from '../components/buttons/ConnectButton';
-import BuyButton from '../components/BuyButton';
-import LootGrid from '../components/LootGrid';
-import ProcessBatchButton from '../components/ProcessBatchButton';
+import BuyButton from '../components/buttons/BuyButton';
+import ArtCard from '../components/ArtCard';
 
 export default function Index() {
   let [walletConnected, setWalletConnected] = useState(false)
@@ -61,18 +59,19 @@ export default function Index() {
                 random loot minting system
               </Typography>
             </Grid>
+
             <Grid item>
               <Button variant="contained" onClick={loadBlockChain}> {walletConnected ? 'Connected' : 'Connect'} </Button>
             </Grid>
-            <Grid container spacing={2} >
-              <Grid item xs={2}>
+            <Grid container spacing={2}  >
+              <Grid item xs={6}>
+                <ArtCard currentBatch={currentBatch}/>
+              </Grid>
+              <Grid item xs={6}>
                 <BuyButton contract={raffle}/>
               </Grid>
-              <CurrentBatchLabel currentBatch={currentBatch}/>
             </Grid>
           </Grid>
-          <LootGrid currentAccount={currentAccount} provider={provider}/>
-          <ProcessBatchButton contract={raffle}/>
         </Container>
       </main>
       <Footer />
