@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button, Box, Card, CardActions, CardContent, Typography, Grid,Divider } from '@material-ui/core';
 import BuyButton from '../components/buttons/BuyButton';
+import { useAppContext } from '../context/AppContext';
 
 export default function RaffleCard(props) {
+  let [state] = useAppContext()
 
   return(
     <Card sx={{ minWidth: 275 }}>
@@ -34,7 +36,7 @@ export default function RaffleCard(props) {
           </Grid>
         </Grid>
         <CardActions>
-          <BuyButton contract={props.contract}/>
+          <BuyButton contract={state.raffleContract}/>
         </CardActions>
       </CardContent>
     </Card>

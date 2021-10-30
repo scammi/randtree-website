@@ -18,13 +18,17 @@ export default function ConnectButton (props) {
     const network_name = network.name 
     const signer = await provider.getSigner()
 
-    let contract = new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
-    let currentBatch = await contract.currentBatch().then((b)=>b.toNumber())
+    let raffleContract = await new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
+    let currentBatch = await raffleContract.currentBatch().then((b)=>b.toNumber())
 
+    console.log(raffleContract)
     setState((state) => ({
       ...state, 
       connected: true,
-      currentBatch: currentBatch
+      latestBatch: currentBatch,
+      account: account,
+      provider: provider,
+      raffleContract: raffleContract 
     }))
   }
 

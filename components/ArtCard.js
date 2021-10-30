@@ -14,7 +14,7 @@ export default function ArtCard() {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography color="primary" variant="h6" gutterBottom>
-              Tree ~ {state.currentBatch}
+              Tree ~ {state.latestBatch}
             </Typography>
           </Grid>
           <Grid item>

@@ -66,7 +66,7 @@ export default function Index() {
               <ArtCard/>
             </Grid>
             <Grid item xs={6}>
-              {/* <RaffleCard contract={raffle}/> */}
+              <RaffleCard/>
             </Grid>
           </Grid>
 

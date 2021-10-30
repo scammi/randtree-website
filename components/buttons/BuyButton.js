@@ -2,30 +2,21 @@ import React from 'react';
 import { Grid, Button } from '@material-ui/core';
 
 
-export default function BuyButton(prop) {
+export default function BuyButton(props) {
 
-  let ready = Object.entries(prop.contract).length
+  let ready = Object.entries(props.contract).length > 0
 
   async function buy() {
-    await prop.contract.buy()
+    await props.contract.buy()
   }
-
-  if(ready) 
-  {
-    return (
-      <Button 
-        variant="contained"
-        onClick={buy}
+  return (
+    <Button 
+      variant="contained"
+      onClick={buy}
+      disabled={!ready}
       >
-        Buy ticket
-      </Button>
-    );
-  }
-  else
-  {
-    return (
-      <Button variant="contained" disabled>Buy ticket</Button>
-    );
-  }
+      Buy ticket
+    </Button>
+  );
   
 }
