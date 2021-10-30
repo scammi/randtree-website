@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ethers } from "ethers";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container, Grid, Button} from '@material-ui/core';
@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import ArtCard from '../components/ArtCard';
 import RaffleCard from '../components/RaffleCard';
-import ConnectButton from '../components/buttons/ConnectButton';
+import { useAppContext } from '../context/raffle';
 
 export default function Index() {
   let [walletConnected, setWalletConnected] = useState(false)
@@ -43,22 +43,16 @@ export default function Index() {
 
     console.log(currentBatch)
   }
+  const context = useAppContext();
 
+  console.log(context)
   return (
     <React.Fragment>
       <CssBaseline />
       <Header walletStatus={walletConnected} onClick={()=>{loadBlockChain()}} />
       <main>
-        <Container maxWidth="md" style={{marginTop:"10px"}}>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <ArtCard currentBatch={currentBatch}/>
-            </Grid>
-            <Grid item xs={6}>
-              <RaffleCard contract={raffle}/>
-            </Grid>
-          </Grid>
-          <Grid container height="50%" spacing={2} justifyContent="space-between">
+        <Container maxWidth="md" style={{marginTop:"40px"}}>
+          {/* <Grid container height="50%" spacing={2} justifyContent="space-between">
             <Grid item>
               <Typography component="h3" variant="h3" align="left" color="textPrimary">
                 Random tree
@@ -69,7 +63,16 @@ export default function Index() {
             </Grid>
             <Grid item>
             </Grid>
+          </Grid> */}
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <ArtCard currentBatch={currentBatch}/>
+            </Grid>
+            <Grid item xs={6}>
+              <RaffleCard contract={raffle}/>
+            </Grid>
           </Grid>
+
         </Container>
       </main>
       <Footer />

@@ -11,7 +11,7 @@ export default function ArtCard(props) {
       <CardContent>
         <Grid container justifyContent="space-between">
           <Grid item>
-            <Typography color="text.secondary" gutterBottom>
+            <Typography color="primary" variant="h6" gutterBottom>
               Tree ~ {props.currentBatch}
             </Typography>
           </Grid>
