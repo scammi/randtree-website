@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import ArtCard from '../components/ArtCard';
 import RaffleCard from '../components/RaffleCard';
-import { useAppContext } from '../context/raffle';
 
 export default function Index() {
   let [walletConnected, setWalletConnected] = useState(false)
@@ -43,9 +42,7 @@ export default function Index() {
 
     console.log(currentBatch)
   }
-  const context = useAppContext();
-
-  console.log(context)
+ 
   return (
     <React.Fragment>
       <CssBaseline />

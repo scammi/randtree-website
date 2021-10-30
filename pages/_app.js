@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../components/theme';
 import { useRouter } from 'next/router';
-import { AppContexWrapper } from '../context/raffle';
+import { AppContexWrapper } from '../context/AppContext';
 import '../components/index.scss';
 
 export default function MyApp(props) {
