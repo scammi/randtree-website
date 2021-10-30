@@ -10,11 +10,13 @@ import Header from '../components/Header';
 import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import CurrentBatchLabel from '../components/CurrentBatchLabel';
+import ConnectButton from '../components/buttons/ConnectButton';
 import BuyButton from '../components/BuyButton';
 import LootGrid from '../components/LootGrid';
 import ProcessBatchButton from '../components/ProcessBatchButton';
 
 export default function Index() {
+  let [walletConnected, setWalletConnected] = useState(false)
   let [currentBatch, setCurrentBatch] = useState(0)
   let [raffle, setRaffle] = useState({})
   let [currentAccount , setCurrentAccount] = useState('')
@@ -39,6 +41,7 @@ export default function Index() {
     currentBatch = await contract.currentBatch()
     setCurrentBatch(currentBatch.toNumber())
     setProvider(tempProvider)
+    setWalletConnected(true)
 
     console.log(currentBatch)
   }
@@ -59,7 +62,7 @@ export default function Index() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained" onClick={loadBlockChain}> Connect </Button>
+              <Button variant="contained" onClick={loadBlockChain}> {walletConnected ? 'Connected' : 'Connect'} </Button>
             </Grid>
             <Grid container spacing={2} >
               <Grid item xs={2}>
