@@ -2,10 +2,19 @@ import React from 'react';
 import { Button, Box, Card, CardActions, CardContent, Typography, Grid,Divider } from '@material-ui/core';
 import BuyButton from '../components/buttons/BuyButton';
 import { useAppContext } from '../context/AppContext';
+import Countdown from 'react-countdown';
 
 export default function RaffleCard(props) {
   let [state] = useAppContext()
-
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // Render a completed state
+      return 'Ready !';
+    } else {
+      // Render a countdown
+      return <span>{hours}h {minutes}m {seconds}s</span>;
+    }
+  };
   return(
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -31,7 +40,10 @@ export default function RaffleCard(props) {
               Ends in
             </Typography>
             <Typography variant="h4">
-             3h 30m 47s
+            <Countdown
+              date={Date.now() + 11900000}
+              renderer={renderer}
+            />
             </Typography>
           </Grid>
         </Grid>
