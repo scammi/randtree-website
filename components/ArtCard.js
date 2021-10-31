@@ -35,6 +35,8 @@ export default function ArtCard() {
     return data;
   }
 
+  queryRaffles()
+
   return(
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
