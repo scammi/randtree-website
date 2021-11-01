@@ -15,41 +15,50 @@ export default function RaffleCard(props) {
       return <span>{hours}h {minutes}m {seconds}s</span>;
     }
   };
+
+  let cardContent 
+  if(state.latestBatch == (state.batchOnDisplayIndex + 1))
+  {
+    cardContent = <> 
+    <Grid container justifyContent="flex-start">
+      <Grid item>
+        <Typography variant="h6">
+          Oct 29 2021
+        </Typography>
+      </Grid>
+    </Grid>
+    <Grid container justifyContent="space-evenly" style={{padding:"20px"}}>
+      <Grid item xs={3}>
+        <Typography>
+          Participants
+        </Typography>
+        <Typography variant="h4">
+          98
+        </Typography>
+      </Grid>
+      <Divider orientation="vertical" flexItem/>
+      <Grid item>
+        <Typography>
+          Ends in
+        </Typography>
+        <Typography variant="h4">
+        <Countdown
+          date={Date.now() + 11900000}
+          renderer={renderer}
+        />
+        </Typography>
+      </Grid>
+    </Grid>
+    <CardActions>
+      <BuyButton contract={state.raffleContract}/>
+    </CardActions>
+   </>
+  }
   return(
     <Card sx={{ minWidth: 275 }}>
+        
       <CardContent>
-        <Grid container justifyContent="flex-start">
-          <Grid item>
-            <Typography variant="h6">
-              Oct 29 2021
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid container justifyContent="space-evenly" style={{padding:"20px"}}>
-          <Grid item xs={3}>
-            <Typography>
-              Participants
-            </Typography>
-            <Typography variant="h4">
-              98
-            </Typography>
-          </Grid>
-          <Divider orientation="vertical" flexItem/>
-          <Grid item>
-            <Typography>
-              Ends in
-            </Typography>
-            <Typography variant="h4">
-            <Countdown
-              date={Date.now() + 11900000}
-              renderer={renderer}
-            />
-            </Typography>
-          </Grid>
-        </Grid>
-        <CardActions>
-          <BuyButton contract={state.raffleContract}/>
-        </CardActions>
+        {cardContent}
       </CardContent>
     </Card>
   );
