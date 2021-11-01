@@ -19,7 +19,7 @@ export default function ArtCard(props) {
     setState((state) => ({
       ...state,
       batchOnDisplayIndex: state.batchOnDisplayIndex + 1
-    }))    
+    }))
   }
 
   return(

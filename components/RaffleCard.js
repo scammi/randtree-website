@@ -53,6 +53,36 @@ export default function RaffleCard(props) {
       <BuyButton contract={state.raffleContract}/>
     </CardActions>
    </>
+  } else {
+    cardContent =
+    <>
+    <Grid container justifyContent="flex-start">
+    <Grid item>
+      <Typography variant="h6">
+        Oct 23 2021
+      </Typography>
+    </Grid>
+  </Grid>
+  <Grid container justifyContent="space-evenly" style={{padding:"20px"}}>
+    <Grid item xs={3}>
+      <Typography>
+        Participants
+      </Typography>
+      <Typography variant="h4">
+        98
+      </Typography>
+    </Grid>
+    <Divider orientation="vertical" flexItem/>
+    <Grid item>
+      <Typography>
+        Winner
+      </Typography>
+      <Typography variant="h4">
+        XYZ
+      </Typography>
+    </Grid>
+  </Grid>
+ </>
   }
   return(
     <Card sx={{ minWidth: 275 }}>
