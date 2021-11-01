@@ -8,6 +8,7 @@ export function AppContexWrapper({ children }) {
         connected: false,
         latestBatch: null,
         batches: {},
+        batchOnDisplayIndex: null,
         account: '',
         provider: {},
         raffleContract: {}

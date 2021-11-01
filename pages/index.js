@@ -43,7 +43,7 @@ export default function Index() {
 
     setState((state) => ({
       ...state,
-      batches: batches
+      batches: batches?.raffleBatches
     }))
   }, [])
  

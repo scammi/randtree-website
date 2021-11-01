@@ -6,7 +6,21 @@ import { useAppContext } from '../context/AppContext';
 
 export default function ArtCard(props) {
 
-  const [ state ] = useAppContext();
+  const [ state, setState ] = useAppContext();
+
+  const previusBatch = () => {
+    setState((state) => ({
+      ...state,
+      batchOnDisplayIndex: state.batchOnDisplayIndex - 1 
+    }))    
+  }
+
+  const nextBatch = () => {
+    setState((state) => ({
+      ...state,
+      batchOnDisplayIndex: state.batchOnDisplayIndex + 1
+    }))    
+  }
 
   return(
     <Card sx={{ minWidth: 275 }}>
@@ -14,14 +28,14 @@ export default function ArtCard(props) {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography color="primary" variant="h6" gutterBottom>
-              Tree ~ {state.latestBatch}
+              Tree ~ {state.batchOnDisplayIndex + 1}
             </Typography>
           </Grid>
           <Grid item>
-            <Button onClick={props.previusRaffle}>
+            <Button onClick={previusBatch}>
               <ArrowBackIosIcon/>
             </Button>
-            <Button onClick={props.nextRaffle}>
+            <Button onClick={nextBatch} disabled={state.latestBatch == (state.batchOnDisplayIndex + 1)}>
               <ArrowForwardIosIcon/>
             </Button>
           </Grid>

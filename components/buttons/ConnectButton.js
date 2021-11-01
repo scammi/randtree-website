@@ -25,6 +25,7 @@ export default function ConnectButton (props) {
       ...state, 
       connected: true,
       latestBatch: currentBatch,
+      batchOnDisplayIndex: currentBatch - 1,
       account: account,
       provider: provider,
       raffleContract: raffleContract 
