@@ -77,8 +77,8 @@ export default function RaffleCard(props) {
       <Typography>
         Winner
       </Typography>
-      <Typography variant="h4">
-        XYZ
+      <Typography variant="caption">
+        {state.batches[state.batchOnDisplayIndex]?.winner}
       </Typography>
     </Grid>
   </Grid>
