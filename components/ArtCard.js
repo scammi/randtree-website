@@ -28,7 +28,7 @@ export default function ArtCard(props) {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography color="primary" variant="h6" gutterBottom>
-              Tree ~ {state.batchOnDisplayIndex + 1}
+              Tree ~ {state.batchOnDisplayIndex ? state.batchOnDisplayIndex + 1: '' }
             </Typography>
           </Grid>
           <Grid item>
