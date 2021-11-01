@@ -32,7 +32,7 @@ export default function ArtCard(props) {
             </Typography>
           </Grid>
           <Grid item>
-            <Button onClick={previusBatch}>
+            <Button onClick={previusBatch} disabled={state.batchOnDisplayIndex == 0}>
               <ArrowBackIosIcon/>
             </Button>
             <Button onClick={nextBatch} disabled={state.latestBatch == (state.batchOnDisplayIndex + 1)}>
