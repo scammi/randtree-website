@@ -7,6 +7,7 @@ export function AppContexWrapper({ children }) {
     const [state, setState] = useState({
         connected: false,
         latestBatch: null,
+        batches: {},
         account: '',
         provider: {},
         raffleContract: {}

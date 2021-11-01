@@ -4,38 +4,9 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useAppContext } from '../context/AppContext';
 
-export default function ArtCard() {
+export default function ArtCard(props) {
 
   const [ state ] = useAppContext();
-
-  async function queryRaffles() {
-    const version = '0.2.4'
-    const response = await fetch(`https://api.studio.thegraph.com/query/6834/piedras/${version}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        query: `{
-          raffleBatches {
-            id
-            batchId
-            winner
-            claimed
-            processed
-          }
-        }`
-      }),
-      headers: {
-          'content-type': 'application/json'
-      }
-    })
-    
-    const {data} = await response.json();
-
-    console.log("raffles: ", data)
-
-    return data;
-  }
-
-  queryRaffles()
 
   return(
     <Card sx={{ minWidth: 275 }}>
@@ -47,8 +18,12 @@ export default function ArtCard() {
             </Typography>
           </Grid>
           <Grid item>
-            <ArrowBackIosIcon/>
-            <ArrowForwardIosIcon/>
+            <Button onClick={props.previusRaffle}>
+              <ArrowBackIosIcon/>
+            </Button>
+            <Button onClick={props.nextRaffle}>
+              <ArrowForwardIosIcon/>
+            </Button>
           </Grid>
         </Grid>
         <CardMedia
