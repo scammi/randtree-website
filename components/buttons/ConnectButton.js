@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 import { addresses } from '../../contracts/addresses';
 import { RAFFLE_ABI } from '../../contracts/abi';
 
-export default function ConnectButton (props) {
+export default function ConnectButton () {
   const [state, setState] = useAppContext();
   
   async function connect() {

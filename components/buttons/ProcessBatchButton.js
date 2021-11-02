@@ -1,15 +1,14 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import { useAppContext } from '../../context/AppContext';
 
-export default function ProcessBatchButton (prop) {
-
-  const contract = prop.contract
-  const ready = Object.entries(contract).length
+export default function ProcessBatchButton () {
+  const [state, setState] = useAppContext();
 
   async function processBatch() {
     try {
-      if (await contract.canProcess() ) {
-        const tx = await contract.processBatch()
+      if (await state.contract.canProcess() ) {
+        const tx = await state.contract.processBatch()
         console.log('processing batch at:', tx.hash)
         await tx.wait()
       } else {
@@ -21,7 +20,7 @@ export default function ProcessBatchButton (prop) {
     }
   }
 
-  if(ready) 
+  if(state.connected) 
   {
     return (
       <Button 

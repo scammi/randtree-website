@@ -3,6 +3,7 @@ import { Button, Box, Card, CardActions, CardContent, Typography, Grid,Divider }
 import BuyButton from '../components/buttons/BuyButton';
 import { useAppContext } from '../context/AppContext';
 import Countdown from 'react-countdown';
+import ProcessBatchButton from './buttons/ProcessBatchButton';
 
 export default function RaffleCard(props) {
   let [state] = useAppContext()
@@ -51,6 +52,7 @@ export default function RaffleCard(props) {
     </Grid>
     <CardActions>
       <BuyButton contract={state.raffleContract}/>
+      <ProcessBatchButton/>
     </CardActions>
    </>
   } else {
