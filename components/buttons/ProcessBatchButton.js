@@ -1,26 +1,49 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import { useAppContext } from '../../context/AppContext';
+import useInterval from '../../hook/useInterval';
 
 export default function ProcessBatchButton () {
   const [state, setState] = useAppContext();
 
   async function processBatch() {
     try {
-      if (await state.contract.canProcess() ) {
-        const tx = await state.contract.processBatch()
-        console.log('processing batch at:', tx.hash)
-        await tx.wait()
-      } else {
-        console.log('cooldown')
-      }
+      const tx = await state.raffleContract.processBatch()
+      console.log('processing batch at:', tx.hash)
+      
+      await tx.wait()
 
+      setState((state) => ({
+        ...state,
+        canProcess: false
+      }))
     } catch (e) {
       console.error(e)
     }
   }
 
-  if(state.connected) 
+  async function canProcess() {
+    if(state.connected)
+    {
+      if(await state.raffleContract.canProcess())
+      {
+        console.log('>>>> Can process <<<<')
+
+        setState((state) => ({
+          ...state,
+          canProcess: true
+        }))
+      }
+      else
+      {
+        console.log('>>>> process not ready <<<<')
+      }
+    }
+  }
+
+  useInterval(canProcess, 10000)
+
+  if(state.connected && state.canProcess) 
   {
     return (
       <Button 

@@ -17,5 +17,4 @@ export default function BuyButton(props) {
       Buy ticket
     </Button>
   );
-  
 }

@@ -4,15 +4,17 @@ import { createContext, useContext, useState } from 'react';
 const AppContext = createContext([{}, () => {}]);
 
 export function AppContexWrapper({ children }) {
-    const [state, setState] = useState({
-        connected: false,
-        latestBatch: null,
-        batches: {},
-        batchOnDisplayIndex: null,
-        account: '',
-        provider: {},
-        raffleContract: {}
-      });
+  const [state, setState] = useState({
+    connected: false,
+    latestBatch: null,
+    batches: {},
+    batchOnDisplayIndex: null,
+    account: '',
+    provider: {},
+    raffleContract: {},
+    network: {},
+    canProcess: false
+  });
     
   return (
     <AppContext.Provider value={[state, setState]}>
