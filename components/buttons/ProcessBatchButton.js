@@ -13,10 +13,7 @@ export default function ProcessBatchButton () {
       
       await tx.wait()
 
-      setState((state) => ({
-        ...state,
-        canProcess: false
-      }))
+      location.reload(true)
     } catch (e) {
       console.error(e)
     }
