@@ -18,23 +18,33 @@ export default function ConnectButton (props) {
     const network_name = network.name 
     const signer = await provider.getSigner()
 
-    let raffleContract = await new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
-    let currentBatch = await raffleContract.currentBatch().then((b)=>b.toNumber())
+    if(network.chainId == 4 || network.chainId == 1)
+    {
+      let raffleContract = await new ethers.Contract(addresses[network_name].Raffle, RAFFLE_ABI, signer)
+      let currentBatch = await raffleContract.currentBatch().then((b)=>b.toNumber())
 
-    setState((state) => ({
-      ...state, 
-      connected: true,
-      latestBatch: currentBatch,
-      batchOnDisplayIndex: currentBatch - 1,
-      account: account,
-      provider: provider,
-      raffleContract: raffleContract 
-    }))
+      setState((state) => ({
+        ...state, 
+        connected: true,
+        network: network,
+        latestBatch: currentBatch,
+        batchOnDisplayIndex: currentBatch - 1,
+        account: account,
+        provider: provider,
+        raffleContract: raffleContract 
+      }))
+    }
+    else
+    {
+      alert('Please connect to a valid network')
+    }
+
+
   }
 
   if(state.connected)
   {
-    return(<Button variant="contained" color="secondary"> Connected </Button>)
+    return(<Button variant="contained" color="secondary" onClick={()=>(console.log(state.network))}> Connected </Button>)
   }
   else 
   {
