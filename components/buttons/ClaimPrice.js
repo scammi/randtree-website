@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 import { useAppContext } from '../../context/AppContext';
 
 
 export default function ClaimPriceButton () {
-  const [state, setState] = useAppContext();
-  
+  let [state, setState] = useAppContext();
+  let [canClaim, setCanClaim] = useState(false)
+
   async function claimPrice(batchId) {
-    const [winner, _, claimed] = await state.contractRaffle.getWinner(state.ClaimPriceButton)
+    const [winner, _, claimed] = await state.raffleContract.getWinner(state.batchOnDisplayIndex)
 
     if (winner == currentAccount && !claimed) {
       const tx = await contract.claim(batchId)
@@ -18,9 +19,37 @@ export default function ClaimPriceButton () {
     else {
       throw new Error('could_not_claim_loot')
     }
-
   }
 
-  return(<Button variant="contained" onClick={()=>(claimPrice())}> buy </Button>)
+  async function canUserClaim() {
+    if(state.connected)
+    {
+      const [winner, _, claimed] = await state.raffleContract.getWinner(state.batchOnDisplayIndex)
+      
+      if(winner == state.account && !claimed) {
+        console.log('TRUE')
+        setCanClaim(true)
+      }
+      else
+      {
+        setCanClaim(false)
+        console.log('false')
+      }
+    }
+  }
 
+  useEffect(() => {
+    canUserClaim()
+  },[state.batchOnDisplayIndex])
+
+  if(canClaim)
+  {
+    return(
+      <Button variant="contained" onClick={()=>(claimPrice())}> Claim </Button>
+    )
+  }
+  else
+  {
+    return('')
+  }
 }

@@ -45,7 +45,7 @@ export default function Index() {
       ...state,
       batches: batches?.raffleBatches
     }))
-  }, [])
+  })
  
   console.log(state.batches)
   return (

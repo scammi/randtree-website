@@ -5,11 +5,11 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useAppContext } from '../context/AppContext';
 import ClaimPriceButton from './buttons/ClaimPrice';
 
-export default function ArtCard(props) {
+export default function ArtCard() {
 
   const [ state, setState ] = useAppContext();
 
-  const previusBatch = () => {
+  const previousBatch = () => {
     setState((state) => ({
       ...state,
       batchOnDisplayIndex: state.batchOnDisplayIndex - 1 
@@ -33,7 +33,7 @@ export default function ArtCard(props) {
             </Typography>
           </Grid>
           <Grid item>
-            <Button onClick={previusBatch} disabled={state.batchOnDisplayIndex == 0}>
+            <Button onClick={previousBatch} disabled={state.batchOnDisplayIndex == 0}>
               <ArrowBackIosIcon/>
             </Button>
             <Button onClick={nextBatch} disabled={state.latestBatch == (state.batchOnDisplayIndex + 1)}>
