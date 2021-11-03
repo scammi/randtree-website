@@ -7,18 +7,17 @@ export default function ClaimPriceButton () {
   let [state, setState] = useAppContext();
   let [canClaim, setCanClaim] = useState(false)
 
-  async function claimPrice(batchId) {
-    const [winner, _, claimed] = await state.raffleContract.getWinner(state.batchOnDisplayIndex)
-
-    if (winner == currentAccount && !claimed) {
-      const tx = await contract.claim(batchId)
+  async function claimPrice() {
+    try {
+      console.log('BATCH ID >>>> ', state.batchOnDisplayIndex)
+      const tx = await state.raffleContract.claim(state.batchOnDisplayIndex)
       const receipt = await tx.wait()
-
+  
       return receipt
+    } catch (e) {
+      console.error(e)
     }
-    else {
-      throw new Error('could_not_claim_loot')
-    }
+
   }
 
   async function canUserClaim() {

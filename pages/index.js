@@ -14,28 +14,32 @@ export default function Index() {
   const [ state, setState ] = useAppContext();
 
   async function queryRaffles() {
-    const version = '0.2.4'
-    const response = await fetch(`https://api.studio.thegraph.com/query/6834/piedras/${version}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        query: `{
-          raffleBatches {
-            id
-            batchId
-            winner
-            claimed
-            processed
-          }
-        }`
-      }),
-      headers: {
-          'content-type': 'application/json'
-      }
-    })
-    
-    const {data} = await response.json();
-
-    return data;
+    try {
+      const version = '0.2.4'
+      const response = await fetch(`https://api.studio.thegraph.com/query/6834/piedras/${version}`, {
+        method: 'POST',
+        body: JSON.stringify({
+          query: `{
+            raffleBatches {
+              id
+              batchId
+              winner
+              claimed
+              processed
+            }
+          }`
+        }),
+        headers: {
+            'content-type': 'application/json'
+        }
+      })
+      
+      const {data} = await response.json();
+  
+      return data;
+    } catch(e) {
+      console.error(e)
+    }
   }
 
   useEffect(async ()=>{
