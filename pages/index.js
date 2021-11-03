@@ -49,7 +49,7 @@ export default function Index() {
       ...state,
       batches: batches?.raffleBatches
     }))
-  })
+  },[state.account])
  
   console.log(state.batches)
   return (
