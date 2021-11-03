@@ -3,6 +3,7 @@ import { Button, Box, Card, CardActions, CardContent, Typography, CardMedia, Gri
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useAppContext } from '../context/AppContext';
+import ClaimPriceButton from './buttons/ClaimPrice';
 
 export default function ArtCard(props) {
 
@@ -45,11 +46,11 @@ export default function ArtCard(props) {
         alt=""
         height="400"
         image="https://art.pixilart.com/63ed34defd26a14.png"
-      />
+       />
+        <CardActions>
+          <ClaimPriceButton/>
+        </CardActions>
       </CardContent>
-      <CardActions>
-
-      </CardActions>
     </Card>
   );
 }
