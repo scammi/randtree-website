@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container, Grid, Button} from '@material-ui/core';
+import { Container, Grid} from '@material-ui/core';
+import Stack from '@mui/material/Stack';
 
 import Header from '../components/Header';
-import Typography from '@material-ui/core/Typography';
 import Footer from '../components/Footer';
 import ArtCard from '../components/ArtCard';
 import RaffleCard from '../components/RaffleCard';
@@ -58,16 +58,15 @@ export default function Index() {
       <Header/>
       <main>
         <Container maxWidth="md" style={{marginTop:"40px"}}>
-
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <ArtCard/>
-            </Grid>
-            <Grid item xs={6}>
-              <RaffleCard/>
-            </Grid>
-          </Grid>
-
+          <div>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 1, sm: 2 }}
+          >
+            <ArtCard/>
+            <RaffleCard/>
+          </Stack> 
+          </div>
         </Container>
       </main>
       <Footer />
