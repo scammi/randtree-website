@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState ,useEffect } from 'react';
 import { Button, Box, Card, CardActions, CardContent, Typography, CardMedia, Grid } from '@material-ui/core';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -22,6 +22,16 @@ export default function ArtCard() {
       batchOnDisplayIndex: state.batchOnDisplayIndex + 1
     }))
   }
+  
+  const enableNextBatch = () => {
+    if(!state.connected || (state.latestBatch == (state.batchOnDisplayIndex + 1))) return true
+    else return false
+  }
+  
+  const enablePreviousBatch = () => {
+    if(!state.connected || (state.batchOnDisplayIndex == 0)) return true
+    else return false
+  }
 
   return(
     <Card sx={{ minWidth: 275 }}>
@@ -33,10 +43,10 @@ export default function ArtCard() {
             </Typography>
           </Grid>
           <Grid item>
-            <Button onClick={previousBatch} disabled={state.batchOnDisplayIndex == 0}>
+            <Button onClick={previousBatch} disabled={enablePreviousBatch()}>
               <ArrowBackIosIcon/>
             </Button>
-            <Button onClick={nextBatch} disabled={state.latestBatch == (state.batchOnDisplayIndex + 1)}>
+            <Button onClick={nextBatch} disabled={enableNextBatch()}>
               <ArrowForwardIosIcon/>
             </Button>
           </Grid>
