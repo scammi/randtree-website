@@ -18,7 +18,7 @@ export default function RaffleCard(props) {
   };
 
   let cardContent 
-  if(state.latestBatch == (state.batchOnDisplayIndex + 1) )
+  if(state.latestBatch == (state.batchOnDisplayIndex + 1) || !state.connected)
   {
     cardContent = <> 
     <Grid container justifyContent="flex-start">
