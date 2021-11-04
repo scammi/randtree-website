@@ -37,9 +37,9 @@ export default function ArtCard() {
   async function getBMP() {
     // new Uint8Array((await (await fetch('https://ipfs.io/ipfs/QmQUq2KxNCnvzPFXnFJYZ276q1JCnNirKtiWmoiiptwmWQ%27)).arrayBuffer()))
 
-    fetch('https://ipfs.io/ipfs/QmQUq2KxNCnvzPFXnFJYZ276q1JCnNirKtiWmoiiptwmWQ')
+    fetch('https://ipfs.io/ipfs/QmU4nPdYPxnFgyQZ5gtL1wdr53MWmbtgngXneLLSHDgyJo')
     .then(r => {
-      return r.arrayBuffer()
+       return r.arrayBuffer()
     })
     .then(async (imgArray) => {
       let img = new Uint8Array(imgArray)
@@ -63,7 +63,9 @@ export default function ArtCard() {
   function drawAmplifiedImage(ctx, image) {
     for (let y = 0; y < 32; y++) {
       for (let x = 0; x < 32; x++) {
-        const rgba = getRGBA(image[y * 32 + x])
+        // const rgba = getRGBA(image[y * 32 + x])
+        const rgba = [image[y * 32 + x],image[y * 32 + (x + 1)],image[y * 32 + (x +2)], 0xff]
+        
         console.log(`rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
 
         ctx.fillStyle = `rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`
