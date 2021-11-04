@@ -35,16 +35,14 @@ export default function ArtCard() {
   }
 
   async function getBMP() {
-    // new Uint8Array((await (await fetch('https://ipfs.io/ipfs/QmQUq2KxNCnvzPFXnFJYZ276q1JCnNirKtiWmoiiptwmWQ%27)).arrayBuffer()))
-
     fetch('https://ipfs.io/ipfs/QmU4nPdYPxnFgyQZ5gtL1wdr53MWmbtgngXneLLSHDgyJo')
     .then(r => {
        return r.arrayBuffer()
     })
     .then(async (imgArray) => {
       let img = new Uint8Array(imgArray)
-      console.log(img)
-      setBMP(img)
+      console.log(img.slice(54))
+      setBMP(img.slice(54))
     })
     
   };
@@ -57,20 +55,25 @@ export default function ArtCard() {
       0xFF
     ]
   }
-  const pixelSize = 16
+  const pixelSize = 8
   const imageSize = 32
   
   function drawAmplifiedImage(ctx, image) {
     for (let y = 0; y < 32; y++) {
       for (let x = 0; x < 32; x++) {
-        // const rgba = getRGBA(image[y * 32 + x])
-        const rgba = [image[y * 32 + x],image[y * 32 + (x + 1)],image[y * 32 + (x +2)], 0xff]
+        const offset = ((y * 32)* 3 + x* 3) 
+        const rgba = [
+          image[offset + 2],
+          image[offset + 1],
+          image[offset],
+          0xff
+        ]
         
-        console.log(`rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
+        console.log(`(${x}, ${y}) => rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
 
         ctx.fillStyle = `rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`
-
-        ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+        
+        ctx.fillRect(x * pixelSize, 32*pixelSize - y * pixelSize-8, pixelSize, pixelSize);
       }
     }
   }
