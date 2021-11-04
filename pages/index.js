@@ -58,15 +58,19 @@ export default function Index() {
       <Header/>
       <main>
         <Container maxWidth="md" style={{marginTop:"40px"}}>
-          <div>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 1, sm: 2 }}
+            spacing={{ xs: 1, sm: 5 }}
+            width={{ xs: 'auto', sm: 'auto'}}
+            justifyContent="center"
           >
-            <ArtCard/>
-            <RaffleCard/>
+            <Grid item>
+              <ArtCard/>
+            </Grid>
+            <Grid item>
+              <RaffleCard/>
+            </Grid>
           </Stack> 
-          </div>
         </Container>
       </main>
       <Footer />

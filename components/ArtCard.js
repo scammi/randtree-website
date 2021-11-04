@@ -34,7 +34,7 @@ export default function ArtCard() {
   }
 
   return(
-    <Card sx={{ minWidth: 275 }}>
+    <Card style={{ width: "400px" }}>
       <CardContent>
         <Grid container justifyContent="space-between">
           <Grid item>
