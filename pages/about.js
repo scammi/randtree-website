@@ -28,7 +28,7 @@ export default function HowItWork() {
       <Container>
         <main>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="About" posts={posts} />
+            <Main title="About rand tree" posts={posts} />
           </Grid>
         </main>
       </Container>

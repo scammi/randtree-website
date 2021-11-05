@@ -1,5 +1,4 @@
 export default `
-# rLOOT 
 <br>
 <p>An affordable batch base system to mint and distribute NFTs using ChainLink VRF as random entropy</p>
 <br>
