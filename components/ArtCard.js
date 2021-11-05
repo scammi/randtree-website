@@ -108,7 +108,7 @@ export default function ArtCard() {
 
 
   return(
-    <Card style={{ width: "400px" }}>
+    <Card style={{ width: "auto" }}>
       <CardContent>
         <Grid container justifyContent="space-between">
           <Grid item>
@@ -125,7 +125,11 @@ export default function ArtCard() {
             </Button>
           </Grid>
         </Grid>
-        <Canvas data={bmp}/>
+        <Grid container justifyContent="center">
+          <Grid item>
+            <Canvas data={bmp}/>
+          </Grid>
+        </Grid>
         <CardActions>
           <ClaimPriceButton/>
         </CardActions>

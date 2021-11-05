@@ -21,7 +21,7 @@ export default function RaffleCard(props) {
   if(state.latestBatch == (state.batchOnDisplayIndex + 1) || !state.connected)
   {
     cardContent = <> 
-    <Grid container justifyContent="flex-start" style={{width:"400px"}}>
+    <Grid container justifyContent="flex-start" style={{minWidth:"400px"}}>
       <Grid item>
         <Typography variant="h6">
           Oct 29 2021
