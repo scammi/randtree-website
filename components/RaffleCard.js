@@ -12,7 +12,6 @@ import BuyButton from "../components/buttons/BuyButton";
 import { useAppContext } from "../context/AppContext";
 import Countdown from "react-countdown";
 import ProcessBatchButton from "./buttons/ProcessBatchButton";
-import { GridGoldenratio } from "@mui/icons-material";
 
 export default function RaffleCard(props) {
   let [state] = useAppContext();

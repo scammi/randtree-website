@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import ConnectButton from './buttons/ConnectButton';
 import { Grid } from '@material-ui/core';
@@ -29,12 +30,16 @@ export default function Header(props) {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" component="div" >
-                About
+                <Link color="inherit" href="/about" underline="hover">
+                  About
+                </Link>
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="subtitle1" component="div" >
-                FAQ
+              <Typography variant="subtitle1" component="div">
+                <Link color="inherit" href="/FAQ" underline="hover">
+                  FAQ
+                </Link>
               </Typography>
             </Grid>
 
