@@ -65,7 +65,7 @@ export default function RaffleCard(props) {
       </Typography>
     </Grid>
   </Grid>
-  <Grid container justifyContent="space-evenly" style={{padding:"20px", minWidth:"400px"}}>
+  <Grid container justifyContent="space-evenly" style={{minWidth:"400px"}}>
     <Grid item xs={3}>
       <Typography>
         Participants
@@ -75,7 +75,7 @@ export default function RaffleCard(props) {
       </Typography>
     </Grid>
     <Divider orientation="vertical" flexItem/>
-    <Grid item>
+    <Grid item >
       <Typography>
         Winner
       </Typography>
@@ -88,7 +88,6 @@ export default function RaffleCard(props) {
   }
   return(
     <Card sx={{ minWidth: 275 }}>
-        
       <CardContent>
         {cardContent}
       </CardContent>

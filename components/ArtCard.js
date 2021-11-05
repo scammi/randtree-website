@@ -61,7 +61,7 @@ export default function ArtCard() {
           0xff
         ]
         
-        console.log(`(${x}, ${y}) => rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
+        // console.log(`(${x}, ${y}) => rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
 
         ctx.fillStyle = `rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`
         
@@ -103,7 +103,7 @@ export default function ArtCard() {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography color="primary" variant="h6" gutterBottom>
-              Tree ~ {state.connected ? state.batchOnDisplayIndex + 1: '' }
+              Tree ~ {state.connected ? state.batchOnDisplayIndex + 1: ''}
             </Typography>
           </Grid>
           <Grid item>
