@@ -23,7 +23,7 @@ export default function Main(props) {
       <Typography variant="h6" gutterBottom>
         {title}
       </Typography>
-      <Divider style={{ background: "#fff" }} />
+      <Divider style={{ background: "#000000" }} />
       {posts.map((post) => (
         <Markdown className={classes.markdown} key={post.toString().substring(0, 40)}>
           {post}

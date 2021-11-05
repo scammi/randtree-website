@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import ConnectButton from './buttons/ConnectButton';
 import { Grid } from '@material-ui/core';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
+  const router = useRouter()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -24,27 +26,30 @@ export default function Header(props) {
         <Toolbar>
           <Grid container spacing={3} sx={{ flexGrow: 1 }}>
             <Grid item>
-              <Typography variant="h5" component="div" >
-                rTree
+              <Typography color="#000" variant="h5" component="div" >
+                <Link color="#000" href="/" underline="none">
+                 rTree
+                </Link>
               </Typography>
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" component="div" >
-                <Link color="inherit" href="/about" underline="hover">
+                <Link color="#000" href="/about" underline="hover">
                   About
                 </Link>
               </Typography>
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" component="div">
-                <Link color="inherit" href="/FAQ" underline="hover">
+                <Link color="#000" href="/FAQ" underline="hover">
                   FAQ
                 </Link>
               </Typography>
             </Grid>
-
           </Grid>
-           <ConnectButton walletStatus={props.walletStatus} onClick={()=>{props.onClick()}}/> 
+            {router.pathname == '/' && (
+              <ConnectButton walletStatus={props.walletStatus} onClick={()=>{props.onClick()}}/> 
+            )}
         </Toolbar>
       </AppBar>
     </Box>
