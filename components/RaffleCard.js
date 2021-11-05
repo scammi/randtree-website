@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Button,
-  Box,
   Card,
   CardActions,
   CardContent,
@@ -76,16 +74,17 @@ export default function RaffleCard(props) {
     );
   }
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card>
       <CardContent>
-          <Grid item>
-            <Typography variant="h6">Oct 23 2021</Typography>
-          </Grid>
+        <Grid item>
+          <Typography variant="h6">Oct 23 2021</Typography>
+        </Grid>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 5 }}
-          width={{ xs: "auto", sm: "auto" }}
+          width={{ xs: "auto"}}
           justifyContent="space-between"
+          style={{maxWidth:"500px", padding:"20px"}}
           >
           {cardContent}
         </Stack>
