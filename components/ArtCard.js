@@ -47,14 +47,6 @@ export default function ArtCard() {
     
   };
 
-  function getRGBA(color) {
-    return [
-      color & 0xff,
-      (color & 0x00ff00) >> 8,
-      (color & 0xff0000) >> 16,
-      0xFF
-    ]
-  }
   const pixelSize = 8
   const imageSize = 32
   
@@ -104,8 +96,6 @@ export default function ArtCard() {
     getBMP()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
-
-
 
   return(
     <Card style={{ width: "auto" }}>
