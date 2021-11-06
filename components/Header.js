@@ -38,7 +38,7 @@ export default function Header(props) {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" component="div">
-                <Link color="#000" href="/FAQ" underline="hover">
+                <Link color="#000" href="/faq" underline="hover">
                   FAQ
                 </Link>
               </Typography>
