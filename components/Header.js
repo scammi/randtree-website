@@ -9,10 +9,6 @@ import ConnectButton from './buttons/ConnectButton';
 import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  header: {
-    backgroundColor: theme.palette.background.default,
-    padding: '2px'
-  },
   hidden: {
     display: 'none'
   }
@@ -23,11 +19,11 @@ export default function Header(props) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className={classes.header}>
+      <AppBar position="static" style={{backgroundColor: '#D4E6B5', padding:'2px'}}>
         <Toolbar>
           <Grid container spacing={3} sx={{ flexGrow: 1 }}>
             <Grid item>
-              <Typography color="#000" variant="h5" component="div" >
+              <Typography color="#000" variant="h5" component="div">
                 <Link color="#000" href="/" underline="none">
                  rTree
                 </Link>

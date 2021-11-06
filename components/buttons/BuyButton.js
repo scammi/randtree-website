@@ -13,7 +13,7 @@ export default function BuyButton(props) {
       variant="contained"
       onClick={buy}
       disabled={!ready}
-      >
+    >
       Buy ticket
     </Button>
   );
