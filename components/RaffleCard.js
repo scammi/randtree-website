@@ -59,15 +59,15 @@ export default function RaffleCard(props) {
     cardContent = (
       <>
         <Grid item>
+          <Typography>Participants</Typography>
+          <Typography variant="h5">98</Typography>
+        </Grid>
+        <Divider orientation="vertical" flexItem />
+        <Grid item>
           <Typography>Winner</Typography>
           <Typography variant="caption">
             {state.batches[state.batchOnDisplayIndex]?.winner}
           </Typography>
-        </Grid>
-        <Divider orientation="vertical" flexItem />
-        <Grid item>
-          <Typography>Participants</Typography>
-          <Typography variant="h5">98</Typography>
         </Grid>
       </>
     );
@@ -82,8 +82,8 @@ export default function RaffleCard(props) {
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 5 }}
           width={{ xs: "auto"}}
-          justifyContent="space-between"
-          style={{maxWidth:"500px", padding:"20px"}}
+          justifyContent="stretch"
+          style={{width:"500px", padding:"20px"}}
           >
           {cardContent}
         </Stack>
