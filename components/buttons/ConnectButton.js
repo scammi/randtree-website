@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button } from '@material-ui/core';
 import { useAppContext } from '../../context/AppContext';
 import { ethers } from "ethers";
 import { addresses } from '../../contracts/addresses';
 import { RAFFLE_ABI } from '../../contracts/abi';
+import { useRouter } from 'next/router';
 
 export default function ConnectButton () {
-  const [state, setState] = useAppContext();
+  const [state, setState] = useAppContext()
+  const [show, setShow] = useState('inline')
+  const router = useRouter()
   
   async function connect() {
     
@@ -39,16 +42,41 @@ export default function ConnectButton () {
       alert('Please connect to a valid network')
     }
 
-
   }
+
+  useEffect(()=> {
+    if(router.pathname == '/')
+    {
+      setShow('inline')
+    }
+    else
+    {
+      setShow('none')
+    }
+  },[router.pathname])
 
   if(state.connected)
   {
-    return(<Button variant="contained" color="secondary" onClick={()=>(console.log(state.network))}> Connected </Button>)
+    return(
+      <Button 
+        style={{display: `${show}`}}
+        variant="contained" 
+        color="secondary" 
+        onClick={()=>(console.log(state.network))}
+      > 
+        Connected 
+      </Button>)
   }
   else 
   {
-    return(<Button variant="contained" onClick={()=>(connect())}> Connect </Button>)
+    return(
+    <Button 
+      style={{display: `${show}`}}
+      variant="contained" 
+      onClick={()=>(connect())}
+    > 
+      Connect
+    </Button>)
   }
 
 }
