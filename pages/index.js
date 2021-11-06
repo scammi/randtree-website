@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container, Grid} from '@material-ui/core';
+import { Container, Grid, Typography} from '@material-ui/core';
 import Stack from '@mui/material/Stack';
 
 import Header from '../components/Header';
@@ -58,6 +58,18 @@ export default function Index() {
       <Header/>
       <main>
         <Container maxWidth="md" style={{marginTop:"40px"}}>
+        
+          <Grid container height="50%" spacing={2} justifyContent="space-between">
+            <Grid item>
+              <Typography component="h3" variant="h3" align="left" color="textPrimary">
+                Rand trees
+              </Typography>
+              <Typography variant="h6" align="left" color="textSecondary" gutterBottom>
+                Fair raffle distribution 
+              </Typography>
+            </Grid>  
+          </Grid>
+
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 5 }}
