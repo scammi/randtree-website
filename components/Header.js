@@ -45,7 +45,6 @@ export default function Header(props) {
             </Grid>
           </Grid>
           <ConnectButton walletStatus={props.walletStatus} onClick={()=>{props.onClick()}}/> 
-
         </Toolbar>
       </AppBar>
     </Box>

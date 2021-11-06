@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 export default function ConnectButton () {
   const [state, setState] = useAppContext()
-  const [show, setShow] = useState('inline')
+  const [show, setShow] = useState('')
   const router = useRouter()
   
   async function connect() {
@@ -47,7 +47,7 @@ export default function ConnectButton () {
   useEffect(()=> {
     if(router.pathname == '/')
     {
-      setShow('inline')
+      setShow('')
     }
     else
     {
