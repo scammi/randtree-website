@@ -75,14 +75,11 @@ export default function RaffleCard(props) {
   return (
     <Card>
       <CardContent>
-        <Grid item>
-          <Typography variant="h6">Oct 23 2021</Typography>
-        </Grid>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 5 }}
           width={{ xs: "auto"}}
-          justifyContent="stretch"
+          justifyContent="center"
           style={{width:"500px", padding:"20px"}}
           >
           {cardContent}
