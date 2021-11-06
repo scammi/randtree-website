@@ -67,7 +67,7 @@ export default function Index() {
               <Typography variant="h6" align="left" color="textSecondary" gutterBottom>
                 Fair raffle distribution 
               </Typography>
-            </Grid>  
+            </Grid> 
           </Grid>
 
           <Stack

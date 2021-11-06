@@ -31,6 +31,7 @@ export default function RaffleCard(props) {
 
   let cardContent
   let cardActions
+  let cardHeader
 
   if (state.latestBatch == state.batchOnDisplayIndex + 1 || !state.connected) {
     cardContent = (
@@ -54,6 +55,14 @@ export default function RaffleCard(props) {
         <BuyButton contract={state.raffleContract} />
         <ProcessBatchButton />
       </>
+    );
+
+    cardHeader = (
+      <>
+        <Typography variant="h6" gutterBottom>
+          Current raffle
+        </Typography>
+      </>
     )
   } else {
     cardContent = (
@@ -72,9 +81,11 @@ export default function RaffleCard(props) {
       </>
     );
   }
+
   return (
     <Card>
       <CardContent>
+        {cardHeader}
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 5 }}
