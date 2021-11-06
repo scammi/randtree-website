@@ -74,7 +74,8 @@ export default function Index() {
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 5 }}
             width={{ xs: 'auto', sm: 'auto'}}
-            justifyContent="center"
+            justifyContent="space-around"
+            style={{marginTop:"20px"}}
           >
             <Grid item>
               <ArtCard/>
